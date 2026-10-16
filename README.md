@@ -61,9 +61,22 @@ Four layers, each with its own job. The engine wraps the model on both sides: it
 
 - **Doctor.** Picks the unit, photographs the case file (20–40 handwritten pages plus lab PDFs) and uploads it. Photos are compressed on the phone, and the upload resumes if the connection drops. Several cases can run at once, each with its own live status, and an email arrives when the draft is ready. At the end, the doctor edits, prints and signs. The AI writes the draft; the doctor stays in charge of what goes in the file.
 - **Engine (plain code), before the AI.** Hospital lab-report PDFs that already carry text are read directly in code. Photos and scanned PDFs go to the model.
-- **AI.** One call to a commercial multimodal model transcribes the whole file into a page-labelled transcript, with loop detection and automatic retries. Two extraction agents then run in parallel: one writes the narrative fields and the imaging list, the other builds the lab tables as JSON (date × test). Each unit has its own schema, and both agents follow anti-hallucination rules.
+- **AI.** A commercial multimodal model transcribes the whole file into a page-labelled transcript; large files are split into parts read in parallel, then joined and checked for missing pages. Loops and blocked replies are detected and retried. Two extraction agents then run in parallel: one writes the narrative fields and the imaging list, the other builds the lab tables as JSON (date × test). Each unit has its own schema, and both agents follow anti-hallucination rules.
 - **Engine (plain code), after the AI.** Repairs the JSON's shape, guards identity fields, flags empty fields, and re-asks the AI once if a lab table comes back malformed. Clinical checks follow: missed-drug recall against the transcript, laterality and numbering, BMI and date sanity checks, and each unit's default rules. Finally it fills the unit's own template: a lab grid with a column per date and widths measured to fit the page, one imaging row per study with outside scans tagged, culture and signature tables, and empty rows removed.
-- **Platform.** Each case runs in its own isolated job, with a standby region and failures caught within seconds. Every run goes into a run register with its timing and exact AI cost from billing. A research study freezes the AI draft and records the doctor's edit time. Temporary uploads are cleared hourly, and a live dashboard and in-app feedback close the loop.
+- **Platform.** Each case runs in its own isolated job, with a standby region, and a crashed job is caught and reported within about a minute. Every run goes into a run register with its timing and exact AI cost from billing. Every step retries on failure, a partly finished draft is kept rather than lost, and failures alert the owner. Temporary uploads are cleared hourly, and a live dashboard and in-app feedback close the loop.
+
+## Engineering highlights
+
+- **One isolated cloud job per case.** Nothing depends on the doctor's browser staying open, and one heavy case can't slow down another.
+- **Code on both sides of the AI.** Hospital lab PDFs are read exactly in code. After the AI step, code repairs its output and enforces the rules that must always hold.
+- **Lab tables that fit the printed page.** One column per date, with each column's width measured, not guessed.
+- **Exactly one record per case,** even with several servers running and the browser closed.
+- **Exact cost per case,** taken from the cloud bill rather than estimated.
+
+**Built with:** Python · FastAPI · Cloud Run services and jobs · Cloud Storage · tus resumable uploads · Google Docs, Drive and Sheets APIs · BigQuery · a commercial multimodal model
+
+<p><a href="ENGINEERING.md"><b>Read the engineering deep-dive →</b></a><br>
+<sub>Life of a case, tech stack, the hard problems and how they were solved, reliability, and cost.</sub></p>
 
 ## Growth
 

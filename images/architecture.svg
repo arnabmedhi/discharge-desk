@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1000" height="924" viewBox="0 0 1000 924" font-family="-apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" role="img" aria-labelledby="t d">
   <title id="t">Discharge Desk architecture</title>
-  <desc id="d">Four layers. Doctor: photographs the case file on a phone, then edits, prints and signs. Engine, in plain code: prepares the case, reads hospital lab-report PDFs directly, then after the AI step repairs and guards the output, runs clinical checks and fills the unit's own template. AI: a commercial multimodal model reads the handwriting, then two agents extract narrative fields and lab tables in parallel; the engine re-asks once if a lab table is malformed. Platform: isolated job per case, standby region, failure detection, run register, exact AI cost, a research study that freezes the AI draft and records edit time, hourly cleanup, a live dashboard and doctor feedback. Engine, AI and Platform run on Google Cloud.</desc>
+  <desc id="d">Four layers. Doctor: photographs the case file on a phone, then edits, prints and signs. Engine, in plain code: prepares the case, reads hospital lab-report PDFs directly, then after the AI step repairs and guards the output, runs clinical checks and fills the unit's own template. AI: a commercial multimodal model reads the handwriting, then two agents extract narrative fields and lab tables in parallel; the engine re-asks once if a lab table is malformed. Platform: isolated job per case, standby region, failure detection, run register, exact AI cost, retries at every step with partial drafts kept and failure alerts, hourly cleanup, a live dashboard and doctor feedback. Engine, AI and Platform run on Google Cloud.</desc>
   <defs>
     <filter id="sh" x="-6%" y="-6%" width="112%" height="120%"><feDropShadow dx="0" dy="1" stdDeviation="1.6" flood-color="#1f2328" flood-opacity="0.09"/></filter>
     <marker id="head" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c959f"/></marker>
@@ -179,7 +179,7 @@
   <text x="135" y="842.5" font-size="11" fill="#57606a">standby region</text>
   <circle cx="127" cy="856.2" r="2" fill="#9a6700"/>
   <text x="135" y="860.0" font-size="11" fill="#57606a">failures caught</text>
-  <text x="135" y="874.5" font-size="11" fill="#57606a">in seconds</text>
+  <text x="135" y="874.5" font-size="11" fill="#57606a">within a minute</text>
   <rect x="289" y="787" width="162" height="102" rx="9" fill="#ffffff" stroke="#dfe3e8" filter="url(#sh)"/>
   <text x="301" y="806" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#9a6700">MEASURE</text>
   <circle cx="304" cy="821.2" r="2" fill="#9a6700"/>
@@ -190,12 +190,13 @@
   <circle cx="304" cy="870.7" r="2" fill="#9a6700"/>
   <text x="312" y="874.5" font-size="11" fill="#57606a">timing &amp; memory</text>
   <rect x="466" y="787" width="162" height="102" rx="9" fill="#ffffff" stroke="#dfe3e8" filter="url(#sh)"/>
-  <text x="478" y="806" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#9a6700">STUDY</text>
+  <text x="478" y="806" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#9a6700">RECOVER</text>
   <circle cx="481" cy="821.2" r="2" fill="#9a6700"/>
-  <text x="489" y="825" font-size="11" fill="#57606a">AI draft frozen</text>
+  <text x="489" y="825" font-size="11" fill="#57606a">retries at every step</text>
   <circle cx="481" cy="838.7" r="2" fill="#9a6700"/>
-  <text x="489" y="842.5" font-size="11" fill="#57606a">doctor edit time</text>
-  <text x="489" y="857.0" font-size="11" fill="#57606a">recorded</text>
+  <text x="489" y="842.5" font-size="11" fill="#57606a">partial drafts kept</text>
+  <circle cx="481" cy="856.2" r="2" fill="#9a6700"/>
+  <text x="489" y="860.0" font-size="11" fill="#57606a">failure alerts</text>
   <rect x="643" y="787" width="162" height="102" rx="9" fill="#ffffff" stroke="#dfe3e8" filter="url(#sh)"/>
   <text x="655" y="806" font-size="9.5" font-weight="700" letter-spacing="0.9" fill="#9a6700">HOUSEKEEPING</text>
   <circle cx="658" cy="821.2" r="2" fill="#9a6700"/>
