@@ -159,7 +159,7 @@ Uploads go in resumable 5 MB pieces. On the server, each file's type is read fro
 
 **Approach.** Every AI call is tagged with its case. The engine records an instant estimate that includes failed attempts. Twice a day, a scheduled job reads the cloud bill's export and replaces each case's estimate with the exact billed amount.
 
-**Result.** The cost is known to the rupee for every case, about ₹34 on average, and the instant estimate now lands within about 2% of the bill.
+**Result.** The cost is known to the rupee for every case, and the instant estimate now lands within about 2% of the bill.
 
 ## Reliability
 

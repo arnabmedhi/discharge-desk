@@ -58,8 +58,6 @@ Before discharge, a doctor reads through all of it and types the discharge summa
 | **Time per summary** | 40–60 min | 10–15 min for the whole job |
 | **Who does what** | the doctor reads and types everything | the AI drafts in about 3 min, the doctor edits for about 6 |
 
-**Cost:** about ₹34 (40 US cents) per case.
-
 ## How it works
 
 <p align="center">
