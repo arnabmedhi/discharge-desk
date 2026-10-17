@@ -12,6 +12,7 @@
   <a href="#hard-problems-solved">Hard problems solved</a> ·
   <a href="#reliability">Reliability</a> ·
   <a href="#measurement">Measurement</a> ·
+  <a href="#a-real-case">A real case</a> ·
   <a href="#what-stays-private">What stays private</a>
 </p>
 
@@ -189,9 +190,13 @@ Every case gets a row in the run register with:
 
 The register holds no clinical text.
 
+## A real case
+
+One real Surgery Unit 2 case is in [`demo/`](demo/), shared with permission and with every identifier removed: the 14 pages as the doctor photographed them, the AI's unedited draft as a PDF, and a 67-second demo video.
+
 ## What stays private
 
-The code, the prompts and per-unit rules, and the unit templates all stay private. The system runs on real patient data, and those parts are where most of the work is. This repository describes the design only. No patient data, names or identifiers appear in it.
+The code, the prompts and per-unit rules, and the unit templates all stay private. The system runs on real patient data, and those parts are where most of the work is. This repository describes the design only. Apart from the one de-identified case in `demo/`, no patient data appears in it, and no names or identifiers appear anywhere.
 
 ---
 

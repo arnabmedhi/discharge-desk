@@ -21,6 +21,11 @@
 </div>
 
 <p align="center">
+  <a href="demo/"><img src="images/demo.gif" alt="Demo: pick Surgery Unit 2, photograph the handwritten notes, tap Generate, and the AI reads the pages and writes the discharge summary" width="100%"></a><br>
+  <sub><a href="demo/"><b>Watch the full demo (67 s) and see the whole case →</b></a> · a real case, identifiers removed</sub>
+</p>
+
+<p align="center">
   <img src="images/dashboard-overview.png" alt="Usage dashboard: totals and cases per day since launch" width="100%">
 </p>
 
@@ -43,6 +48,10 @@ Before discharge, a doctor reads through all of it and types the discharge summa
     <td width="50%" align="center" valign="top"><img src="images/new-case-upload.png" alt="New case page: upload phone photos or PDFs, then Generate"><br><sub>Add the photos and PDFs, then Generate</sub></td>
   </tr>
 </table>
+
+<p align="center">
+  <img src="images/before-after.jpg" alt="Before and after: a handwritten chief complaint and a handwritten lab sheet next to the typed lines and lab table in the AI's draft" width="100%">
+</p>
 
 |  | By hand | With Discharge Desk |
 |---|---|---|
@@ -92,7 +101,7 @@ Four layers, each with its own job. The engine wraps the model on both sides: it
 
 Production code is private because it runs on real patient data.
 
-This repository holds only this overview, the diagram and screenshots from the live app. Names and emails have been removed from the screenshots.
+This repository holds only this overview, the diagram, screenshots from the live app, and one real case in [`demo/`](demo/), shared with permission and with every identifier removed. Names and emails have been removed from the screenshots.
 
 ---
 
