@@ -5,8 +5,9 @@
   <sub>Shared with permission. Every identifier has been removed.</sub>
 </p>
 
-<!-- VIDEO PLAYER: in GitHub's web editor, drag discharge-desk-demo.mp4 onto the empty line below this comment. -->
+<!-- VIDEO PLAYER: the link below is the video uploaded through GitHub's editor; GitHub shows it as a player. -->
 
+https://github.com/user-attachments/assets/cf33b13c-fc5f-459d-81d5-3596f043b1cd
 
 | File | What it is |
 |---|---|
